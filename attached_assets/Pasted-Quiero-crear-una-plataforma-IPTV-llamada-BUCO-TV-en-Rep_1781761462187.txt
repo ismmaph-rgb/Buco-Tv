@@ -1,0 +1,170 @@
+Quiero crear una plataforma IPTV llamada BUCO TV en Replit.
+
+IMPORTANTE:
+No quiero una web estática simple. Necesito una app con backend Node.js/Express porque muchos streams HTTP fallan en navegador por Mixed Content, CORS o formato. La app debe poder usar rutas proxy internas tipo `/stream/:id` para que el frontend no cargue directamente URLs externas.
+
+OBJETIVO:
+Crear una plataforma IPTV web moderna, responsive, estilo Netflix/DGO/Pluto TV, para ver TV en vivo desde navegador, Android TV y celulares.
+
+STACK:
+
+* Node.js
+* Express
+* Frontend HTML/CSS/JS o React si lo ves conveniente
+* HLS.js en frontend
+* DASH.js si es necesario
+* Backend con proxy de streams
+* Archivo `data/channels.json` para cargar canales
+* Preparado para deploy en Replit
+
+ESTRUCTURA DESEADA:
+
+/
+├── package.json
+├── server.js
+├── data/
+│   └── channels.json
+├── public/
+│   ├── index.html
+│   ├── styles/
+│   │   └── main.css
+│   ├── scripts/
+│   │   ├── app.js
+│   │   └── player.js
+│   ├── assets/
+│   │   ├── logo/
+│   │   ├── logos/
+│   │   └── banners/
+│   └── manifest.webmanifest
+└── README.md
+
+FUNCIONALIDAD PRINCIPAL:
+
+1. El frontend NO debe reproducir directamente las URLs externas de los canales.
+2. El frontend debe pedir los canales a:
+   `/api/channels`
+3. Para reproducir un canal, el frontend debe usar:
+   `/stream/:id`
+4. El backend debe buscar el canal por ID en `data/channels.json`.
+5. El backend debe hacer proxy del stream original hacia el navegador.
+6. Si el stream original es HLS `.m3u8`, el proxy debe:
+
+   * obtener el manifest M3U8;
+   * reescribir las URLs internas de segmentos si hace falta;
+   * servirlo con `Content-Type: application/vnd.apple.mpegurl`;
+   * permitir que HLS.js lo reproduzca.
+7. Si el stream original es una URL directa sin extensión, por ejemplo:
+   `http://190.119.176.186:8000/play/a098`
+   el backend debe intentar reenviarla como stream de video.
+8. Agregar headers correctos:
+
+   * Access-Control-Allow-Origin: *
+   * Cache-Control: no-cache
+   * Content-Type correcto según el caso.
+9. Agregar logs claros en consola para saber:
+
+   * canal solicitado;
+   * URL original;
+   * tipo detectado;
+   * error si falla.
+
+FORMATO DE `data/channels.json`:
+
+[
+{
+"id": 1,
+"name": "Canal 40",
+"category": "TV en Vivo",
+"logo": "/assets/logos/canal40.png",
+"stream": "https://canalsj.kozow.com/canal40/index.m3u8",
+"featured": true,
+"description": "Canal principal de BUCO TV"
+},
+{
+"id": 2,
+"name": "Sports One",
+"category": "Deportes",
+"logo": "/assets/logos/default.png",
+"stream": "http://190.119.176.186:8000/play/a098",
+"featured": false,
+"description": "Canal deportivo"
+}
+]
+
+DISEÑO:
+
+* Tema oscuro premium.
+* Estilo Netflix/DGO.
+* Header con logo BUCO TV.
+* Sección Inicio.
+* Sección TV en Vivo.
+* Categorías dinámicas.
+* Carruseles horizontales.
+* Tarjetas con logo, nombre, categoría y botón EN VIVO.
+* Compatible con celulares.
+* Compatible con Android TV.
+* Navegación con teclado:
+
+  * flechas;
+  * Enter;
+  * Escape/Back.
+
+REPRODUCTOR:
+
+El reproductor debe ser minimalista.
+
+No quiero botones gigantes.
+
+Debe tener:
+
+* Video ocupando casi toda la pantalla.
+* Controles flotantes pequeños.
+* Overlay semitransparente.
+* Botón cerrar.
+* Botón pantalla completa.
+* Botón canal anterior.
+* Botón canal siguiente.
+* Botón guía.
+* Nombre del canal actual.
+* Guía lateral deslizable con todos los canales.
+* Al cambiar de canal, no cerrar el reproductor.
+* Detener correctamente el stream anterior antes de abrir el nuevo.
+* Ocultar controles después de 3 segundos.
+
+PROBLEMA A RESOLVER:
+
+En Netlify tuve problemas porque la web HTTPS intentaba cargar streams HTTP y Chrome los bloqueaba por Mixed Content. También algunos links funcionan en VLC pero no en navegador.
+
+Por eso necesito que Replit tenga backend y que el frontend use `/stream/:id` en vez de usar directamente el link original.
+
+IMPORTANTE:
+
+* No hardcodear canales en JavaScript.
+* Todo debe salir de `data/channels.json`.
+* Si agrego canales al JSON, deben aparecer automáticamente.
+* No crear una demo falsa.
+* El sistema debe estar preparado para reproducir canales reales.
+* Si un canal no puede reproducirse, mostrar diagnóstico claro:
+
+  * Mixed Content
+  * CORS
+  * formato no soportado
+  * stream caído
+  * error de proxy
+  * error HLS
+
+README:
+Incluir instrucciones para:
+
+* ejecutar en Replit;
+* editar canales;
+* agregar logos;
+* probar `/api/channels`;
+* probar `/stream/:id`;
+* hacer deploy;
+* recomendaciones para Android TV.
+
+Al finalizar, genera todos los archivos necesarios y deja el proyecto listo para ejecutar con:
+
+npm install
+npm start

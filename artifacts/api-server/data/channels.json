@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Canal 40",
+    "category": "TV en Vivo",
+    "logo": null,
+    "stream": "https://canalsj.kozow.com/canal40/index.m3u8",
+    "featured": true,
+    "description": "Canal principal de BUCO TV"
+  },
+  {
+    "id": 2,
+    "name": "Sports One",
+    "category": "Deportes",
+    "logo": null,
+    "stream": "http://190.119.176.186:8000/play/a098",
+    "featured": false,
+    "description": "Canal deportivo en vivo"
+  },
+  {
+    "id": 3,
+    "name": "CNN en Español",
+    "category": "Noticias",
+    "logo": null,
+    "stream": "https://cnn-cnne.akamaized.net/hls/live/2015045/cnne/master.m3u8",
+    "featured": true,
+    "description": "Noticias internacionales en español"
+  },
+  {
+    "id": 4,
+    "name": "Azteca 7",
+    "category": "TV en Vivo",
+    "logo": null,
+    "stream": "https://www.aztecauno.com/azteca7.m3u8",
+    "featured": false,
+    "description": "Entretenimiento y series"
+  },
+  {
+    "id": 5,
+    "name": "TyC Sports",
+    "category": "Deportes",
+    "logo": null,
+    "stream": "https://d3anfzklnxdha7.cloudfront.net/tycsportsmobile_hls/tycsports_mobile/playlist.m3u8",
+    "featured": true,
+    "description": "Fútbol y deportes argentinos"
+  },
+  {
+    "id": 6,
+    "name": "TV Pública Argentina",
+    "category": "Cultura",
+    "logo": null,
+    "stream": "https://streaming.tvpublica.com.ar/live/smil:tvpublica.smil/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de servicio público de Argentina"
+  },
+  {
+    "id": 7,
+    "name": "Telefe Noticias",
+    "category": "Noticias",
+    "logo": null,
+    "stream": "https://live.telefe.com/hls/telefe.m3u8",
+    "featured": false,
+    "description": "Noticias de Argentina"
+  },
+  {
+    "id": 8,
+    "name": "Cinemax",
+    "category": "Entretenimiento",
+    "logo": null,
+    "stream": "https://hls.cinemax.com/live/index.m3u8",
+    "featured": false,
+    "description": "Películas y series en vivo"
+  },
+  {
+    "id": 9,
+    "name": "ESPN Internacional",
+    "category": "Deportes",
+    "logo": null,
+    "stream": "https://espn-live.akamaized.net/hls/live/espni/master.m3u8",
+    "featured": true,
+    "description": "Deportes internacionales ESPN"
+  },
+  {
+    "id": 10,
+    "name": "Cartoon Network",
+    "category": "Infantil",
+    "logo": null,
+    "stream": "https://live.cartoonnetwork.com/hls/master.m3u8",
+    "featured": false,
+    "description": "Caricaturas y animaciones para niños"
+  },
+  {
+    "id": 11,
+    "name": "Discovery Channel",
+    "category": "Documentales",
+    "logo": null,
+    "stream": "https://live.discoverychannel.com/hls/master.m3u8",
+    "featured": false,
+    "description": "Documentales de ciencia y naturaleza"
+  },
+  {
+    "id": 12,
+    "name": "América TV",
+    "category": "TV en Vivo",
+    "logo": null,
+    "stream": "https://live-streaming.americatv.com.pe/hls/index.m3u8",
+    "featured": false,
+    "description": "Canal de señal abierta peruano"
+  }
+]

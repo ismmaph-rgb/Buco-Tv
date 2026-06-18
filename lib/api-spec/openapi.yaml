@@ -3,13 +3,15 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: BUCO TV API specification
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: channels
+    description: Channel operations
 paths:
   /healthz:
     get:
@@ -24,6 +26,107 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /channels:
+    get:
+      operationId: listChannels
+      tags: [channels]
+      summary: List all channels
+      description: Returns all available channels from the channels.json file
+      parameters:
+        - name: category
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Filter by category
+        - name: featured
+          in: query
+          required: false
+          schema:
+            type: boolean
+          description: Filter by featured status
+      responses:
+        "200":
+          description: List of channels
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Channel"
+
+  /channels/{id}:
+    get:
+      operationId: getChannel
+      tags: [channels]
+      summary: Get channel by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Channel found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Channel"
+        "404":
+          description: Channel not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /channels/categories:
+    get:
+      operationId: listCategories
+      tags: [channels]
+      summary: List all unique categories
+      description: Returns all unique channel categories
+      responses:
+        "200":
+          description: List of categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+
+  /channels/featured:
+    get:
+      operationId: listFeaturedChannels
+      tags: [channels]
+      summary: List featured channels
+      description: Returns featured channels for the hero section
+      responses:
+        "200":
+          description: Featured channels
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Channel"
+
+  /channels/stats:
+    get:
+      operationId: getChannelStats
+      tags: [channels]
+      summary: Get channel statistics
+      description: Returns aggregate stats about channels
+      responses:
+        "200":
+          description: Channel statistics
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChannelStats"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +137,49 @@ components:
       required:
         - status
 
+    Channel:
+      type: object
+      required:
+        - id
+        - name
+        - category
+        - stream
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        category:
+          type: string
+        logo:
+          type: ["string", "null"]
+        stream:
+          type: string
+        featured:
+          type: boolean
+        description:
+          type: ["string", "null"]
+
+    ChannelStats:
+      type: object
+      required:
+        - total
+        - featured
+        - categoryCounts
+      properties:
+        total:
+          type: integer
+        featured:
+          type: integer
+        categoryCounts:
+          type: object
+          additionalProperties:
+            type: integer
+
+    ErrorResponse:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
