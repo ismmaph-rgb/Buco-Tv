@@ -6,6 +6,7 @@ import NotFound from "@/pages/not-found";
 import { Home } from "@/pages/home";
 import { Live } from "@/pages/live";
 import { Player } from "@/pages/player";
+import { Debug } from "@/pages/debug";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/live" component={Live} />
       <Route path="/player/:id" component={Player} />
+      <Route path="/debug" component={Debug} />
       <Route component={NotFound} />
     </Switch>
   );

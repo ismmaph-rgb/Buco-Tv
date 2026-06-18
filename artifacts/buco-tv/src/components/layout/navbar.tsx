@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Search, Tv } from "lucide-react";
+import { Search, Tv, FlaskConical } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
@@ -33,6 +33,12 @@ export function Navbar() {
               <span className={`text-sm font-medium transition-colors hover:text-white flex items-center gap-1.5 ${location.startsWith('/live') ? 'text-white' : 'text-white/60'}`}>
                 <Tv className="w-4 h-4" />
                 TV en Vivo
+              </span>
+            </Link>
+            <Link href="/debug">
+              <span className={`text-sm font-medium transition-colors hover:text-white flex items-center gap-1.5 ${location.startsWith('/debug') ? 'text-white' : 'text-white/60'}`}>
+                <FlaskConical className="w-4 h-4" />
+                Auditoría
               </span>
             </Link>
           </nav>
