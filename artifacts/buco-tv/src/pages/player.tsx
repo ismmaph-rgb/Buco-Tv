@@ -37,6 +37,12 @@ function errorTypeLabel(type?: string): string {
   }
 }
 
+const BACKEND_BASE_URL = "https://buco-tv.onrender.com";
+
+function getProxiedStreamUrl(channelId: number): string {
+  return `${BACKEND_BASE_URL}/stream/${channelId}`;
+}
+
 export function Player() {
   const [, params] = useRoute("/player/:id");
   const [, setLocation] = useLocation();
@@ -103,7 +109,8 @@ export function Player() {
     setIsLoading(true);
     destroyHls();
 
-    const streamUrl = `/stream/${channelId}`;
+    const streamUrl = getProxiedStreamUrl(channelId);
+    console.log("Playing channel", channelId, channel?.name, streamUrl);
 
     if (Hls.isSupported()) {
       const hls = new Hls({
@@ -282,7 +289,8 @@ export function Player() {
                   setIsLoading(true);
                   if (videoRef.current) {
                     destroyHls();
-                    const streamUrl = `/stream/${channelId}`;
+                    const streamUrl = getProxiedStreamUrl(channelId);
+                    console.log("Retrying channel", channelId, channel?.name, streamUrl);
                     if (Hls.isSupported()) {
                       const hls = new Hls({ manifestLoadingTimeOut: 20000 });
                       hlsRef.current = hls;
