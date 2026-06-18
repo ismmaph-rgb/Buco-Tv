@@ -2,109 +2,577 @@
   {
     "id": 1,
     "name": "Canal 40",
-    "category": "TV en Vivo",
-    "logo": null,
+    "category": "Copa Mundial FIFA 2026",
+    "logo": "assets/logos/canal40.png",
     "stream": "https://canalsj.kozow.com/canal40/index.m3u8",
     "featured": true,
-    "description": "Canal principal de BUCO TV"
+    "description": "Canal destacado"
   },
   {
     "id": 2,
-    "name": "Sports One",
-    "category": "Deportes",
-    "logo": null,
-    "stream": "http://190.119.176.186:8000/play/a098",
+    "name": "Telecanal",
+    "category": "Nuevos Canales",
+    "logo": "assets/logos/default.png",
+    "stream": "http://tr.live.clarovtrcdn.vtrplay.com/telecanalsdchi/vxfmt=dp/playlist.m3u8?device_profile=STB_HLS_VCAS_LIVE_HD",
     "featured": false,
-    "description": "Canal deportivo en vivo"
+    "description": "Transmisión en vivo"
   },
   {
     "id": 3,
-    "name": "CNN en Español",
-    "category": "Noticias",
-    "logo": null,
-    "stream": "https://cnn-cnne.akamaized.net/hls/live/2015045/cnne/master.m3u8",
-    "featured": true,
-    "description": "Noticias internacionales en español"
+    "name": "Tigo Sports Pirata",
+    "category": "Deportes",
+    "logo": "assets/logos/default.png",
+    "stream": "https://lbgo.bozztv.com/ssh101/ssh101/manuel2703/playlist.m3u8",
+    "featured": false,
+    "description": "Señal deportiva"
   },
   {
     "id": 4,
-    "name": "Azteca 7",
-    "category": "TV en Vivo",
-    "logo": null,
-    "stream": "https://www.aztecauno.com/azteca7.m3u8",
+    "name": "Victory TV / Cazé TV 1",
+    "category": "Copa Mundial FIFA 2026",
+    "logo": "assets/logos/default.png",
+    "stream": "http://201.151.118.136:1234/stream/mundial2026/cazetvop1/master.m3u8",
     "featured": false,
-    "description": "Entretenimiento y series"
+    "description": "Transmisión del Mundial"
   },
   {
     "id": 5,
-    "name": "TyC Sports",
-    "category": "Deportes",
-    "logo": null,
-    "stream": "https://d3anfzklnxdha7.cloudfront.net/tycsportsmobile_hls/tycsports_mobile/playlist.m3u8",
-    "featured": true,
-    "description": "Fútbol y deportes argentinos"
+    "name": "Goal Network / Cazé TV 2",
+    "category": "Copa Mundial FIFA 2026",
+    "logo": "assets/logos/default.png",
+    "stream": "http://201.151.118.136:1234/stream/mundial2026/cazetvop2/master.m3u8",
+    "featured": false,
+    "description": "Transmisión del Mundial"
   },
   {
     "id": 6,
-    "name": "TV Pública Argentina",
-    "category": "Cultura",
-    "logo": null,
-    "stream": "https://streaming.tvpublica.com.ar/live/smil:tvpublica.smil/playlist.m3u8",
+    "name": "Sports Prime / Telemundo",
+    "category": "Deportes",
+    "logo": "assets/logos/default.png",
+    "stream": "http://201.151.118.136:1234/stream/mundial2026/lateleenunmundoexterior/master.m3u8",
     "featured": false,
-    "description": "Canal de servicio público de Argentina"
+    "description": "Señal deportiva"
   },
   {
     "id": 7,
-    "name": "Telefe Noticias",
-    "category": "Noticias",
-    "logo": null,
-    "stream": "https://live.telefe.com/hls/telefe.m3u8",
+    "name": "Arena Sports / CTV 2",
+    "category": "Deportes",
+    "logo": "assets/logos/default.png",
+    "stream": "http://stream.cammonitorplus.net/1731/index.m3u8",
     "featured": false,
-    "description": "Noticias de Argentina"
+    "description": "Señal deportiva"
   },
   {
     "id": 8,
-    "name": "Cinemax",
-    "category": "Entretenimiento",
-    "logo": null,
-    "stream": "https://hls.cinemax.com/live/index.m3u8",
+    "name": "CTV",
+    "category": "Copa Mundial FIFA 2026",
+    "logo": "assets/logos/default.png",
+    "stream": "http://stream.cammonitorplus.net/1712/index.m3u8",
     "featured": false,
-    "description": "Películas y series en vivo"
+    "description": "Transmisión general"
   },
   {
     "id": 9,
-    "name": "ESPN Internacional",
-    "category": "Deportes",
-    "logo": null,
-    "stream": "https://espn-live.akamaized.net/hls/live/espni/master.m3u8",
-    "featured": true,
-    "description": "Deportes internacionales ESPN"
+    "name": "24h HD",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a094/index.m3u8",
+    "featured": false,
+    "description": "Canal 24 Horas RTVE"
   },
   {
     "id": 10,
-    "name": "Cartoon Network",
-    "category": "Infantil",
-    "logo": null,
-    "stream": "https://live.cartoonnetwork.com/hls/master.m3u8",
+    "name": "A3Series",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0ag/index.m3u8",
     "featured": false,
-    "description": "Caricaturas y animaciones para niños"
+    "description": "Series de Atresmedia"
   },
   {
     "id": 11,
-    "name": "Discovery Channel",
-    "category": "Documentales",
-    "logo": null,
-    "stream": "https://live.discoverychannel.com/hls/master.m3u8",
+    "name": "AndaluciaTV",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09s/index.m3u8",
     "featured": false,
-    "description": "Documentales de ciencia y naturaleza"
+    "description": "Canal autonómico"
   },
   {
     "id": 12,
-    "name": "América TV",
-    "category": "TV en Vivo",
-    "logo": null,
-    "stream": "https://live-streaming.americatv.com.pe/hls/index.m3u8",
+    "name": "Antena 3",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0a8/index.m3u8",
     "featured": false,
-    "description": "Canal de señal abierta peruano"
+    "description": "Canal generalista"
+  },
+  {
+    "id": 13,
+    "name": "BOM",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09p/index.m3u8",
+    "featured": false,
+    "description": "Cine y entretenimiento"
+  },
+  {
+    "id": 14,
+    "name": "BOM RADIO",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0a7/index.m3u8",
+    "featured": false,
+    "description": "Emisora de radio"
+  },
+  {
+    "id": 15,
+    "name": "BeMad tv HD",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0ah/index.m3u8",
+    "featured": false,
+    "description": "Cine y documentales"
+  },
+  {
+    "id": 16,
+    "name": "Boing",
+    "category": "Kids",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09z/index.m3u8",
+    "featured": false,
+    "description": "Infantil"
+  },
+  {
+    "id": 17,
+    "name": "C.S.R. Malaga",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09m/index.m3u8",
+    "featured": false,
+    "description": "Emisora de radio"
+  },
+  {
+    "id": 18,
+    "name": "CADENA 100",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0a5/index.m3u8",
+    "featured": false,
+    "description": "Emisora musical"
+  },
+  {
+    "id": 19,
+    "name": "COPE",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09x/index.m3u8",
+    "featured": false,
+    "description": "Emisora generalista"
+  },
+  {
+    "id": 20,
+    "name": "Canal Fiesta R.",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09q/index.m3u8",
+    "featured": false,
+    "description": "Emisora de radio"
+  },
+  {
+    "id": 21,
+    "name": "CanalSur2",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09l/index.m3u8",
+    "featured": false,
+    "description": "Canal autonómico"
+  },
+  {
+    "id": 22,
+    "name": "CanalSurHD",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09o/index.m3u8",
+    "featured": false,
+    "description": "Canal autonómico HD"
+  },
+  {
+    "id": 23,
+    "name": "Clan HD",
+    "category": "Kids",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a099/index.m3u8",
+    "featured": false,
+    "description": "Infantil RTVE"
+  },
+  {
+    "id": 24,
+    "name": "Cuatro HD",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0af/index.m3u8",
+    "featured": false,
+    "description": "Canal generalista"
+  },
+  {
+    "id": 25,
+    "name": "DIAL",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09k/index.m3u8",
+    "featured": false,
+    "description": "Emisora musical"
+  },
+  {
+    "id": 26,
+    "name": "DKISS",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09e/index.m3u8",
+    "featured": false,
+    "description": "Entretenimiento"
+  },
+  {
+    "id": 27,
+    "name": "DMAX",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0a2/index.m3u8",
+    "featured": false,
+    "description": "Documentales"
+  },
+  {
+    "id": 28,
+    "name": "Divinity",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0ad/index.m3u8",
+    "featured": false,
+    "description": "Series"
+  },
+  {
+    "id": 29,
+    "name": "EUROPA FM",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09v/index.m3u8",
+    "featured": false,
+    "description": "Emisora musical"
+  },
+  {
+    "id": 30,
+    "name": "Energy",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09y/index.m3u8",
+    "featured": false,
+    "description": "Ficción"
+  },
+  {
+    "id": 31,
+    "name": "FDF",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0ac/index.m3u8",
+    "featured": false,
+    "description": "Comedia"
+  },
+  {
+    "id": 32,
+    "name": "FlamencoRadio.com",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09n/index.m3u8",
+    "featured": false,
+    "description": "Emisora musical"
+  },
+  {
+    "id": 33,
+    "name": "GOL PLAY HD",
+    "category": "Deportes",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0a3/index.m3u8",
+    "featured": false,
+    "description": "Deportes en abierto"
+  },
+  {
+    "id": 34,
+    "name": "HIT FM",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09g/index.m3u8",
+    "featured": false,
+    "description": "Emisora musical"
+  },
+  {
+    "id": 35,
+    "name": "Kiss FM",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09f/index.m3u8",
+    "featured": false,
+    "description": "Emisora musical"
+  },
+  {
+    "id": 36,
+    "name": "LOS40",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09j/index.m3u8",
+    "featured": false,
+    "description": "Emisora musical"
+  },
+  {
+    "id": 37,
+    "name": "LOS40 Classic",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0ak/index.m3u8",
+    "featured": false,
+    "description": "Emisora musical"
+  },
+  {
+    "id": 38,
+    "name": "LOS40 Urban",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0al/index.m3u8",
+    "featured": false,
+    "description": "Emisora musical"
+  },
+  {
+    "id": 39,
+    "name": "La 1 HD",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a095/index.m3u8",
+    "featured": false,
+    "description": "RTVE generalista"
+  },
+  {
+    "id": 40,
+    "name": "LA 1 UHD",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09a/index.m3u8",
+    "featured": false,
+    "description": "RTVE 4K"
+  },
+  {
+    "id": 41,
+    "name": "La 2 HD",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a098/index.m3u8",
+    "featured": false,
+    "description": "RTVE cultural"
+  },
+  {
+    "id": 42,
+    "name": "MEGA",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09t/index.m3u8",
+    "featured": false,
+    "description": "Documentales"
+  },
+  {
+    "id": 43,
+    "name": "ONDA CERO",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09u/index.m3u8",
+    "featured": false,
+    "description": "Emisora generalista"
+  },
+  {
+    "id": 44,
+    "name": "PARAMOUNT NETWORK",
+    "category": "Cine",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0a1/index.m3u8",
+    "featured": false,
+    "description": "Cine y series"
+  },
+  {
+    "id": 45,
+    "name": "R.A.I. Malaga",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09r/index.m3u8",
+    "featured": false,
+    "description": "Emisora de radio"
+  },
+  {
+    "id": 46,
+    "name": "RADIO MARCA",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0a4/index.m3u8",
+    "featured": false,
+    "description": "Emisora deportiva"
+  },
+  {
+    "id": 47,
+    "name": "RADIO MARIA",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0a6/index.m3u8",
+    "featured": false,
+    "description": "Emisora religiosa"
+  },
+  {
+    "id": 48,
+    "name": "RNE Andalucía",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a096/index.m3u8",
+    "featured": false,
+    "description": "Emisora pública"
+  },
+  {
+    "id": 49,
+    "name": "Radio 5 RNE",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a097/index.m3u8",
+    "featured": false,
+    "description": "Emisora de noticias"
+  },
+  {
+    "id": 50,
+    "name": "Radio Clasica HQ RNE",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09b/index.m3u8",
+    "featured": false,
+    "description": "Música clásica"
+  },
+  {
+    "id": 51,
+    "name": "Radio Exterior RNE",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09d/index.m3u8",
+    "featured": false,
+    "description": "Emisora internacional"
+  },
+  {
+    "id": 52,
+    "name": "Radio3 HQ RNE",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09c/index.m3u8",
+    "featured": false,
+    "description": "Cultural y musical"
+  },
+  {
+    "id": 53,
+    "name": "Radiolé",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0am/index.m3u8",
+    "featured": false,
+    "description": "Emisora musical"
+  },
+  {
+    "id": 54,
+    "name": "Realmadrid TV HD",
+    "category": "Deportes",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0ai/index.m3u8",
+    "featured": false,
+    "description": "Canal oficial del club"
+  },
+  {
+    "id": 55,
+    "name": "SER",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09i/index.m3u8",
+    "featured": false,
+    "description": "Emisora generalista"
+  },
+  {
+    "id": 56,
+    "name": "SQUIRREL",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0a0/index.m3u8",
+    "featured": false,
+    "description": "Emisora de radio"
+  },
+  {
+    "id": 57,
+    "name": "TEN",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0aj/index.m3u8",
+    "featured": false,
+    "description": "Entretenimiento"
+  },
+  {
+    "id": 58,
+    "name": "TRECE",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09w/index.m3u8",
+    "featured": false,
+    "description": "Canal generalista"
+  },
+  {
+    "id": 59,
+    "name": "Telecinco HD",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0ae/index.m3u8",
+    "featured": false,
+    "description": "Canal generalista"
+  },
+  {
+    "id": 60,
+    "name": "esRadio",
+    "category": "Radios",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a09h/index.m3u8",
+    "featured": false,
+    "description": "Emisora generalista"
+  },
+  {
+    "id": 61,
+    "name": "laSexta",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0a9/index.m3u8",
+    "featured": false,
+    "description": "Canal informativo"
+  },
+  {
+    "id": 62,
+    "name": "neox",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0aa/index.m3u8",
+    "featured": false,
+    "description": "Series y entretenimiento"
+  },
+  {
+    "id": 63,
+    "name": "nova",
+    "category": "TV España",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a0ab/index.m3u8",
+    "featured": false,
+    "description": "Telenovelas"
+  },
+  {
+    "id": 64,
+    "name": "tdp HD",
+    "category": "Deportes",
+    "logo": "assets/logos/default.png",
+    "stream": "http://176.65.146.93:8401/play/a093/index.m3u8",
+    "featured": false,
+    "description": "Teledeporte RTVE"
   }
 ]
