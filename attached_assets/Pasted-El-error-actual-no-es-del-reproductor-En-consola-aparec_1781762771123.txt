@@ -1,0 +1,77 @@
+El error actual no es del reproductor. En consola aparece:
+
+GET /stream/... 502 Bad Gateway
+
+Necesito corregir el backend/proxy.
+
+Problema:
+Cuando el frontend intenta reproducir un canal usando la ruta interna `/stream/:id`, Replit responde 502 Bad Gateway. Si abro el stream original directo, funciona. Por lo tanto el fallo está en el proxy de Express.
+
+Revisar y corregir:
+
+1. La ruta `/stream/:id`.
+2. La lectura de `channels.json`.
+3. Que el ID solicitado encuentre correctamente el canal.
+4. Que el backend use la URL original exacta.
+5. Que no modifique mal la URL.
+6. Que no intente tratar el stream como JSON.
+7. Que reenvíe el cuerpo como stream usando pipes.
+8. Que copie headers importantes.
+9. Que maneje redirecciones.
+10. Que soporte streams largos sin cortar la conexión.
+11. Que aumente timeout.
+12. Que devuelva errores detallados, no solo 502.
+
+Implementar proxy con Node/Express de forma robusta:
+
+* Usar `fetch` o `http/https` según corresponda.
+* Si el stream original devuelve M3U8, responder con:
+  `Content-Type: application/vnd.apple.mpegurl`
+* Si devuelve MPEG-TS, responder con:
+  `Content-Type: video/mp2t`
+* Si devuelve video genérico, responder con:
+  `Content-Type: video/mp4` o el content-type original.
+* Agregar:
+  `Access-Control-Allow-Origin: *`
+  `Cache-Control: no-cache`
+  `Connection: keep-alive`
+
+Agregar logs completos:
+
+[STREAM PROXY]
+channelId:
+channelName:
+originalUrl:
+responseStatus:
+responseContentType:
+errorCode:
+errorMessage:
+
+Si falla, devolver JSON de diagnóstico en una ruta separada `/api/diagnose/:id`, pero NO devolver JSON en `/stream/:id` cuando el player espera video.
+
+Crear además una ruta de prueba:
+
+`/api/test-stream/:id`
+
+Debe devolver:
+
+* canal encontrado sí/no;
+* URL original;
+* HTTP status del origen;
+* content-type del origen;
+* si pudo conectar;
+* primeros errores si falla.
+
+Importante:
+El frontend debe reproducir `/stream/:id`, no la URL original.
+
+Después de corregir, probar con este flujo:
+
+1. Abrir `/api/channels`.
+2. Abrir `/api/test-stream/ID_DEL_CANAL`.
+3. Abrir `/stream/ID_DEL_CANAL` directamente en navegador.
+4. Recién después probar desde el reproductor.
+
+No quiero más error genérico "Transmisión no disponible" si el backend da 502. Mostrar:
+"Error del proxy Replit: 502 Bad Gateway"
+y el diagnóstico real.
