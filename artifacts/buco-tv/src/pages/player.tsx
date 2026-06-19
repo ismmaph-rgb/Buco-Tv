@@ -1,46 +1,33 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useRoute, useLocation } from "wouter";
 import Hls from "hls.js";
-import { useGetChannel, useListChannels } from "@workspace/api-client-react";
 import { Maximize, Minimize, X, ChevronLeft, ChevronRight, Menu, AlertCircle, Tv, RefreshCw } from "lucide-react";
 
-type ProxyError = {
-  error: string;
-  type?: string;
-  channelId?: number;
-  channelName?: string;
-  streamUrl?: string;
-  originalError?: string;
+type Channel = {
+  id: number;
+  name: string;
+  category: string;
+  logo?: string;
+  stream: string;
+  featured?: boolean;
+  description?: string;
 };
 
-type DiagnosticResult = {
-  ok: boolean;
-  channelFound?: boolean;
-  originalUrl?: string;
-  streamType?: string;
-  httpStatus?: number;
-  contentType?: string | null;
-  canConnect?: boolean;
-  errorMessage?: string;
-  proxyStreamUrl?: string;
-};
+const CHANNELS_JSON_URL =
+  "https://raw.githubusercontent.com/ismmaph-rgb/Buco-Tv/main/artifacts/api-server/data/channels.json";
 
-function errorTypeLabel(type?: string): string {
-  switch (type) {
-    case "timeout": return "Timeout del stream";
-    case "connection_refused": return "Servidor de origen caído";
-    case "dns_error": return "Host no encontrado (DNS)";
-    case "ssl_error": return "Error SSL del origen";
-    case "redirect_loop": return "Demasiadas redirecciones";
-    case "upstream_error": return "Error del servidor de origen";
-    default: return "Error del proxy";
-  }
+function getDirectStreamUrl(channel?: Channel | null): string {
+  return channel?.stream?.trim() ?? "";
 }
 
-const BACKEND_BASE_URL = "https://buco-tv.onrender.com";
+function getStreamErrorMessage(streamUrl: string): string {
+  if (!streamUrl) return "Este canal no tiene URL de transmisión configurada.";
 
-function getProxiedStreamUrl(channelId: number): string {
-  return `${BACKEND_BASE_URL}/stream/${channelId}`;
+  if (window.location.protocol === "https:" && streamUrl.startsWith("http://")) {
+    return "Este canal usa HTTP y puede ser bloqueado por el navegador en una web HTTPS. Usá un enlace HTTPS o un proxy.";
+  }
+
+  return "Error de red desconocido";
 }
 
 export function Player() {
@@ -53,18 +40,14 @@ export function Player() {
   const containerRef = useRef<HTMLDivElement>(null);
   const hideControlsTimeoutRef = useRef<number>();
 
+  const [channels, setChannels] = useState<Channel[]>([]);
+  const [channel, setChannel] = useState<Channel | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showControls, setShowControls] = useState(true);
   const [showGuide, setShowGuide] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [errorDetail, setErrorDetail] = useState<ProxyError | null>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
-  const { data: channel } = useGetChannel(channelId, {
-    query: { enabled: !!channelId },
-  });
-  const { data: channels = [] } = useListChannels();
 
   const currentIndex = channels.findIndex((c) => c.id === channelId);
   const prevChannel = currentIndex > 0 ? channels[currentIndex - 1] : channels[channels.length - 1];
@@ -80,92 +63,150 @@ export function Player() {
     }
   }, []);
 
-  // Fetch the real error detail from the proxy when HLS network error occurs
-  const fetchProxyError = useCallback(async (streamUrl: string): Promise<string> => {
-    try {
-      const resp = await fetch(streamUrl);
-      if (!resp.ok) {
-        const text = await resp.text();
-        try {
-          const json: ProxyError = JSON.parse(text);
-          setErrorDetail(json);
-          return `${errorTypeLabel(json.type)}: ${json.error}`;
-        } catch {
-          return `Error ${resp.status}: ${text.slice(0, 120)}`;
-        }
-      }
-      return "Error de red desconocido";
-    } catch (e) {
-      return e instanceof Error ? e.message : "Error de conexión";
-    }
-  }, []);
-
   useEffect(() => {
-    if (!channelId || !videoRef.current) return;
+    let cancelled = false;
 
+    async function loadChannels() {
+      try {
+        const response = await fetch(`${CHANNELS_JSON_URL}?t=${Date.now()}`, {
+          cache: "no-store",
+        });
+
+        if (!response.ok) {
+          throw new Error(`No se pudo cargar channels.json (${response.status})`);
+        }
+
+        const data = (await response.json()) as Channel[];
+
+        if (cancelled) return;
+
+        setChannels(data);
+        setChannel(data.find((c) => c.id === channelId) ?? null);
+      } catch (err) {
+        if (cancelled) return;
+        setError(err instanceof Error ? err.message : "No se pudo cargar la lista de canales.");
+        setIsLoading(false);
+      }
+    }
+
+    loadChannels();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [channelId]);
+
+  const loadCurrentStream = useCallback(() => {
+    const video = videoRef.current;
+    const streamUrl = getDirectStreamUrl(channel);
+
+    destroyHls();
     setError(null);
-    setErrorDetail(null);
     setIsPlaying(false);
     setIsLoading(true);
-    destroyHls();
 
-    const streamUrl = getProxiedStreamUrl(channelId);
-    console.log("Playing channel", channelId, channel?.name, streamUrl);
+    if (!video) return;
 
-    if (Hls.isSupported()) {
+    video.removeAttribute("src");
+    video.load();
+
+    console.log("Playing channel", channel?.id, channel?.name, streamUrl);
+
+    if (!streamUrl) {
+      setIsLoading(false);
+      setError("Este canal no tiene URL de transmisión configurada.");
+      return;
+    }
+
+    const lowerUrl = streamUrl.toLowerCase();
+
+    if (lowerUrl.includes(".m3u8") && Hls.isSupported()) {
       const hls = new Hls({
         enableWorker: true,
         lowLatencyMode: true,
         manifestLoadingTimeOut: 20000,
-        manifestLoadingMaxRetry: 1,
+        manifestLoadingMaxRetry: 3,
         levelLoadingTimeOut: 20000,
+        levelLoadingMaxRetry: 3,
         fragLoadingTimeOut: 30000,
+        fragLoadingMaxRetry: 4,
       });
 
       hlsRef.current = hls;
       hls.loadSource(streamUrl);
-      hls.attachMedia(videoRef.current);
+      hls.attachMedia(video);
 
       hls.on(Hls.Events.MANIFEST_PARSED, () => {
         setIsLoading(false);
-        videoRef.current?.play().catch(() => {});
+        video.play().catch(() => {});
       });
 
       hls.on(Hls.Events.ERROR, (_event, data) => {
         if (!data.fatal) return;
 
-        destroyHls();
         setIsLoading(false);
 
         if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
-          fetchProxyError(streamUrl).then((msg) => setError(msg));
+          setError(getStreamErrorMessage(streamUrl));
         } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
-          setError("Formato de video no compatible con tu navegador");
+          setError("Formato de video no compatible con este navegador.");
         } else {
-          setError("Error al cargar la transmisión — canal posiblemente caído");
+          setError("Error al cargar la transmisión. El canal puede estar caído o bloqueado.");
         }
+
+        destroyHls();
       });
-    } else if (videoRef.current.canPlayType("application/vnd.apple.mpegurl")) {
-      // Safari native HLS
-      const vid = videoRef.current;
-      vid.src = streamUrl;
-      vid.addEventListener("loadedmetadata", () => {
-        setIsLoading(false);
-        vid.play().catch(() => {});
-      });
-      vid.addEventListener("error", () => {
-        setIsLoading(false);
-        fetchProxyError(streamUrl).then((msg) => setError(msg));
-      });
-    } else {
-      setIsLoading(false);
-      setError("Tu navegador no soporta HLS. Probá con Chrome o Firefox.");
+
+      return;
     }
 
-    return destroyHls;
-  }, [channelId, destroyHls, fetchProxyError]);
+    if (lowerUrl.includes(".m3u8") && video.canPlayType("application/vnd.apple.mpegurl")) {
+      video.src = streamUrl;
+      video.addEventListener(
+        "loadedmetadata",
+        () => {
+          setIsLoading(false);
+          video.play().catch(() => {});
+        },
+        { once: true }
+      );
+      video.addEventListener(
+        "error",
+        () => {
+          setIsLoading(false);
+          setError(getStreamErrorMessage(streamUrl));
+        },
+        { once: true }
+      );
+      return;
+    }
 
-  // Controls auto-hide
+    video.src = streamUrl;
+    video.addEventListener(
+      "loadedmetadata",
+      () => {
+        setIsLoading(false);
+        video.play().catch(() => {});
+      },
+      { once: true }
+    );
+    video.addEventListener(
+      "error",
+      () => {
+        setIsLoading(false);
+        setError(getStreamErrorMessage(streamUrl));
+      },
+      { once: true }
+    );
+  }, [channel, destroyHls]);
+
+  useEffect(() => {
+    if (!channelId || !channel) return;
+    loadCurrentStream();
+
+    return destroyHls;
+  }, [channelId, channel, loadCurrentStream, destroyHls]);
+
   const triggerControls = useCallback(() => {
     setShowControls(true);
     if (hideControlsTimeoutRef.current) {
@@ -183,7 +224,6 @@ export function Player() {
     };
   }, [showGuide, triggerControls]);
 
-  // Keep controls visible while guide is open
   useEffect(() => {
     if (showGuide && hideControlsTimeoutRef.current) {
       window.clearTimeout(hideControlsTimeoutRef.current);
@@ -249,7 +289,6 @@ export function Player() {
         onPlaying={() => setIsLoading(false)}
       />
 
-      {/* Loading state */}
       {isLoading && !error && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-10 pointer-events-none">
           <div className="flex flex-col items-center gap-4">
@@ -259,7 +298,6 @@ export function Player() {
         </div>
       )}
 
-      {/* Error state */}
       {error && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/85 z-20 p-4">
           <div className="text-center p-8 bg-zinc-900/90 border border-white/10 rounded-2xl backdrop-blur-md max-w-lg w-full">
@@ -267,42 +305,18 @@ export function Player() {
             <h3 className="text-xl font-bold mb-2">Transmisión no disponible</h3>
             <p className="text-white/70 mb-3 text-sm leading-relaxed">{error}</p>
 
-            {errorDetail && (
+            {channel?.stream && (
               <div className="text-left bg-black/40 rounded-xl p-4 mb-5 text-xs font-mono space-y-1 border border-white/5">
-                {errorDetail.type && (
-                  <div><span className="text-white/40">tipo:</span> <span className="text-yellow-400">{errorDetail.type}</span></div>
-                )}
-                {errorDetail.streamUrl && (
-                  <div className="truncate"><span className="text-white/40">url:</span> <span className="text-white/60">{errorDetail.streamUrl}</span></div>
-                )}
-                {errorDetail.originalError && errorDetail.originalError !== errorDetail.error && (
-                  <div><span className="text-white/40">detalle:</span> <span className="text-red-400">{errorDetail.originalError}</span></div>
-                )}
+                <div className="truncate">
+                  <span className="text-white/40">url:</span>{" "}
+                  <span className="text-white/60">{channel.stream}</span>
+                </div>
               </div>
             )}
 
             <div className="flex gap-3 justify-center flex-wrap">
               <button
-                onClick={() => {
-                  setError(null);
-                  setErrorDetail(null);
-                  setIsLoading(true);
-                  if (videoRef.current) {
-                    destroyHls();
-                    const streamUrl = getProxiedStreamUrl(channelId);
-                    console.log("Retrying channel", channelId, channel?.name, streamUrl);
-                    if (Hls.isSupported()) {
-                      const hls = new Hls({ manifestLoadingTimeOut: 20000 });
-                      hlsRef.current = hls;
-                      hls.loadSource(streamUrl);
-                      hls.attachMedia(videoRef.current);
-                      hls.on(Hls.Events.MANIFEST_PARSED, () => { setIsLoading(false); videoRef.current?.play().catch(() => {}); });
-                      hls.on(Hls.Events.ERROR, (_e, d) => {
-                        if (d.fatal) { hls.destroy(); setIsLoading(false); setError("Error de red — canal posiblemente caído"); }
-                      });
-                    }
-                  }
-                }}
+                onClick={loadCurrentStream}
                 className="px-5 py-2 bg-primary text-black font-bold rounded-lg hover:bg-primary/90 transition-colors flex items-center gap-2"
               >
                 <RefreshCw className="w-4 h-4" /> Reintentar
@@ -318,7 +332,6 @@ export function Player() {
         </div>
       )}
 
-      {/* Top overlay */}
       <div
         className={`absolute top-0 inset-x-0 p-5 bg-gradient-to-b from-black/80 to-transparent transition-opacity duration-300 z-30 flex justify-between items-start ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
@@ -352,7 +365,6 @@ export function Player() {
         </button>
       </div>
 
-      {/* Prev / Next channel buttons */}
       <div
         className={`absolute inset-y-0 inset-x-0 flex items-center justify-between px-4 sm:px-12 pointer-events-none z-20 transition-opacity duration-300 ${showControls && !showGuide ? "opacity-100" : "opacity-0"}`}
       >
@@ -379,7 +391,6 @@ export function Player() {
         )}
       </div>
 
-      {/* Bottom overlay */}
       <div
         className={`absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 z-30 flex justify-end ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"}`}
       >
@@ -391,7 +402,6 @@ export function Player() {
         </button>
       </div>
 
-      {/* Side Guide Panel */}
       <div
         className={`absolute top-0 right-0 bottom-0 w-80 bg-black/90 border-l border-white/10 backdrop-blur-xl z-40 transform transition-transform duration-300 flex flex-col ${showGuide ? "translate-x-0" : "translate-x-full"}`}
       >
