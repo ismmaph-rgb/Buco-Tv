@@ -121,16 +121,28 @@ export function Player() {
     const lowerUrl = streamUrl.toLowerCase();
 
     if (lowerUrl.includes(".m3u8") && Hls.isSupported()) {
-      const hls = new Hls({
-        enableWorker: true,
-        lowLatencyMode: true,
-        manifestLoadingTimeOut: 20000,
-        manifestLoadingMaxRetry: 3,
-        levelLoadingTimeOut: 20000,
-        levelLoadingMaxRetry: 3,
-        fragLoadingTimeOut: 30000,
-        fragLoadingMaxRetry: 4,
-      });
+  const hls = new Hls({
+    enableWorker: true,
+    lowLatencyMode: false,
+
+    backBufferLength: 90,
+    maxBufferLength: 60,
+    maxMaxBufferLength: 120,
+
+    manifestLoadingTimeOut: 30000,
+    manifestLoadingMaxRetry: 8,
+    manifestLoadingRetryDelay: 1000,
+
+    levelLoadingTimeOut: 30000,
+    levelLoadingMaxRetry: 8,
+    levelLoadingRetryDelay: 1000,
+
+    fragLoadingTimeOut: 30000,
+    fragLoadingMaxRetry: 12,
+    fragLoadingRetryDelay: 1000,
+
+    startFragPrefetch: true,
+  });
 
       hlsRef.current = hls;
       hls.loadSource(streamUrl);
