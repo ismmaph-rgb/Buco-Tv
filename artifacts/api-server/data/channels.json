@@ -10,16 +10,16 @@
   },
   {
     "id": 2,
-    "name": "DSports",
+    "name": "TeleMundo MX",
     "category": "Copa Mundial FIFA 2026",
     "logo": "assets/logos/default.png",
-    "stream": "http://201.151.118.136:1234/stream/mundial2026/dsports/master.m3u8 ",
+    "stream": "http://134.195.157.227:1234/stream/test/tm/master.m3u8",
     "featured": false,
     "description": "Transmisión en vivo"
   },
   {
     "id": 3,
-    "name": "Tigo Sports Pirata",
+    "name": "Tigo Sports",
     "category": "Deportes",
     "logo": "assets/logos/default.png",
     "stream": "https://lbgo.bozztv.com/ssh101/ssh101/manuel2703/playlist.m3u8",
