@@ -291,15 +291,22 @@ export function Player() {
       onClick={triggerControls}
     >
       <video
-        ref={videoRef}
-        className="w-full h-full object-contain"
-        autoPlay
-        playsInline
-        onPlay={() => { setIsPlaying(true); setIsLoading(false); }}
-        onPause={() => setIsPlaying(false)}
-        onWaiting={() => setIsLoading(true)}
-        onPlaying={() => setIsLoading(false)}
-      />
+  ref={videoRef}
+  className="w-full h-full object-contain"
+  autoPlay
+  playsInline
+  onPlay={() => {
+    setIsPlaying(true);
+    setIsLoading(false);
+  }}
+  onPause={() => setIsPlaying(false)}
+  onWaiting={() => {
+    setTimeout(() => {
+      videoRef.current?.play().catch(() => {});
+    }, 2000);
+  }}
+  onPlaying={() => setIsLoading(false)}
+/>
 
       {isLoading && !error && (
         <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-10 pointer-events-none">
