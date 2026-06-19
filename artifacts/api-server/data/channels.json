@@ -574,5 +574,743 @@
     "stream": "http://176.65.146.93:8401/play/a093/index.m3u8",
     "featured": false,
     "description": "Teledeporte RTVE"
+  },
+  {
+    "id": 65,
+    "name": "FIFA+ WOMEN",
+    "category": "FIFA+",
+    "logo": "assets/logos/default.png",
+    "stream": "http://2.26.80.23:8443/channel/14dce94b/index.m3u8?q=1781690407383",
+    "featured": false,
+    "description": "Contenido de FIFA+"
+  },
+  {
+    "id": 66,
+    "name": "FIFA+ EN",
+    "category": "FIFA+",
+    "logo": "assets/logos/default.png",
+    "stream": "http://2.26.80.23:8443/channel/7eb6f997/index.m3u8?q=1781690371842-7eb6f997",
+    "featured": false,
+    "description": "Contenido de FIFA+"
+  },
+  {
+    "id": 67,
+    "name": "FIFA+ FR",
+    "category": "FIFA+",
+    "logo": "assets/logos/default.png",
+    "stream": "http://2.26.80.23:8443/channel/n65748128/index.m3u8?q=1781690371842-n65748128",
+    "featured": false,
+    "description": "Contenido de FIFA+"
+  },
+  {
+    "id": 68,
+    "name": "FIFA+ DE",
+    "category": "FIFA+",
+    "logo": "assets/logos/default.png",
+    "stream": "http://2.26.80.23:8443/channel/n46068f94/index.m3u8?q=1781690371842-n46068f94",
+    "featured": false,
+    "description": "Contenido de FIFA+"
+  },
+  {
+    "id": 69,
+    "name": "FIFA+ Hispan",
+    "category": "FIFA+",
+    "logo": "assets/logos/default.png",
+    "stream": "http://2.26.80.23:8443/channel/74154899/index.m3u8?q=1781690371842-74154899",
+    "featured": false,
+    "description": "Contenido de FIFA+"
+  },
+  {
+    "id": 70,
+    "name": "FIFA+ IT",
+    "category": "FIFA+",
+    "logo": "assets/logos/default.png",
+    "stream": "http://2.26.80.23:8443/channel/22fb51bd/index.m3u8?q=1781690371842-22fb51bd",
+    "featured": false,
+    "description": "Contenido de FIFA+"
+  },
+  {
+    "id": 71,
+    "name": "FIFA+ PT",
+    "category": "FIFA+",
+    "logo": "assets/logos/default.png",
+    "stream": "http://2.26.80.23:8443/channel/739c2074/index.m3u8?q=1781690371842-739c2074",
+    "featured": false,
+    "description": "Contenido de FIFA+"
+  },
+  {
+    "id": 72,
+    "name": "FIFA+ ES",
+    "category": "FIFA+",
+    "logo": "assets/logos/default.png",
+    "stream": "http://2.26.80.23:8443/channel/33d35d57/index.m3u8?q=1781690371842-33d35d57",
+    "featured": false,
+    "description": "Contenido de FIFA+"
+  },
+  {
+    "id": 73,
+    "name": "FIFA+ US",
+    "category": "FIFA+",
+    "logo": "assets/logos/default.png",
+    "stream": "http://2.26.80.23:8443/channel/nb217563/index.m3u8?q=1781690371842-nb217563",
+    "featured": false,
+    "description": "Contenido de FIFA+"
+  },
+  {
+    "id": 74,
+    "name": "ABC HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/abc_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 75,
+    "name": "Aljazeera HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/aljazeera_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 76,
+    "name": "AMC HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/amc_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 77,
+    "name": "Animal Planet HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/animal_planet_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 78,
+    "name": "AXN HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/axn_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 79,
+    "name": "AZ Cinema HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/azcinema_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 80,
+    "name": "AZ Corazon HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/azcorazon_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 81,
+    "name": "AZ Mundo HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/azmundo_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 82,
+    "name": "Azteca 7 HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/azteca7_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 83,
+    "name": "Canal 11 HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/canal11_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 84,
+    "name": "Canal 5 HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/canal5_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 85,
+    "name": "Cartoonito HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/cartoonito_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 86,
+    "name": "CBS HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/cbs_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 87,
+    "name": "Cine Canal HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/cine_canal_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 88,
+    "name": "CNN HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/cnn_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 89,
+    "name": "Comedy Central HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/comedycentral_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 90,
+    "name": "Deportes TVC HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/deportes_tvc_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 91,
+    "name": "DHE HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/dhe_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 92,
+    "name": "Discovery HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/discovery_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 93,
+    "name": "Discovery ID HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/discovery_id_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 94,
+    "name": "Discovery Theater HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/discovery_theater_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 95,
+    "name": "Discovery World HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/discovery_world_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 96,
+    "name": "Disney HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/disney_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 97,
+    "name": "Disney Jr HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/disney_jr_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 98,
+    "name": "El Gourmet HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/el_gourmet_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 99,
+    "name": "ESPN 2 HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/espn_2_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 100,
+    "name": "ESPN 3 HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/espn_3_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 101,
+    "name": "ESPN 4 HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/espn_4_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 102,
+    "name": "ESPN 5 HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/espn_5_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 103,
+    "name": "ESPN 6 HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/espn_6_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 104,
+    "name": "Las Estrellas HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/estrellas_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 105,
+    "name": "Food Network HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/foodnetwork_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 106,
+    "name": "Fox News HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/fox_news_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 107,
+    "name": "Freeform HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/freeform_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 108,
+    "name": "FS1 HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/fs1_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 109,
+    "name": "FX HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/fx_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 110,
+    "name": "Golden HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/golden_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 111,
+    "name": "Golf HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/golf_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 112,
+    "name": "HBO Family HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/hbo_family_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 113,
+    "name": "HBO Plus HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/hbo_plus_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 114,
+    "name": "HBO Signature HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/hbo_signature_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 115,
+    "name": "HBO Xtreme HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/hbo_xtreme_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 116,
+    "name": "HCH HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/hch_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 117,
+    "name": "History HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/history_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 118,
+    "name": "Home Health HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/home_health_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 119,
+    "name": "HTV HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/htv_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 120,
+    "name": "LTV HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/ltv_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 121,
+    "name": "Natgeo HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/natgeo_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 122,
+    "name": "NBC HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/nbc_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 123,
+    "name": "Paramount HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/paramount_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 124,
+    "name": "Penthouse HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/penthouse_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 125,
+    "name": "Playboy HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/playboy_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 126,
+    "name": "Showtime HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/showtime_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 127,
+    "name": "Sony HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/sony_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 128,
+    "name": "Space HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/space_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 129,
+    "name": "Starz HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/starz_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 130,
+    "name": "Studio Universal HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/studio_universal_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 131,
+    "name": "Telehit HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/telehit_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 132,
+    "name": "Telemundo HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/telemundo_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 133,
+    "name": "TEN HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/ten_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 134,
+    "name": "TNH HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/tnh_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 135,
+    "name": "TNT HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/tnt_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 136,
+    "name": "TVE HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/tve_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 137,
+    "name": "Universal HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/universal_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 138,
+    "name": "Universo HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/universo_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 139,
+    "name": "USA HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/usa_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 140,
+    "name": "Warner HD",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://190.11.225.124:5000/live/warner_hd/playlist.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 141,
+    "name": "Movistar+ FANZONE",
+    "category": "Variada",
+    "logo": "assets/logos/default.png",
+    "stream": "http://31.43.191.125:8080/live/aaa/aaa/158457.m3u8",
+    "featured": false,
+    "description": "Canal de entretenimiento"
+  },
+  {
+    "id": 142,
+    "name": "KBS2 \ud83c\uddf0\ud83c\uddf7",
+    "category": "CANALES ASIATICOS",
+    "logo": "assets/logos/default.png",
+    "stream": "https://bintangstreaming.my.id/1kds/kds_tes.php/.m3u8?id=kbs2",
+    "featured": false,
+    "description": "Televisión de Corea del Sur"
+  },
+  {
+    "id": 143,
+    "name": "JTBC \ud83c\uddf0\ud83c\uddf7",
+    "category": "CANALES ASIATICOS",
+    "logo": "assets/logos/default.png",
+    "stream": "https://bintangstreaming.my.id/1kds/kds_tes.php/.m3u8?id=jtbc",
+    "featured": false,
+    "description": "Televisión de Corea del Sur"
+  },
+  {
+    "id": 144,
+    "name": "tvN \ud83c\uddf0\ud83c\uddf7",
+    "category": "CANALES ASIATICOS",
+    "logo": "assets/logos/default.png",
+    "stream": "https://bintangstreaming.my.id/1kds/kds_tes.php/.m3u8?id=tvn",
+    "featured": false,
+    "description": "Televisión de Corea del Sur"
+  },
+  {
+    "id": 145,
+    "name": "SBS \ud83c\uddf0\ud83c\uddf7",
+    "category": "CANALES ASIATICOS",
+    "logo": "assets/logos/default.png",
+    "stream": "https://bintangstreaming.my.id/1kds/kds_tes.php/.m3u8?id=sbs",
+    "featured": false,
+    "description": "Televisión de Corea del Sur"
+  },
+  {
+    "id": 146,
+    "name": "MBC \ud83c\uddf0\ud83c\uddf7",
+    "category": "CANALES ASIATICOS",
+    "logo": "assets/logos/default.png",
+    "stream": "https://bintangstreaming.my.id/1kds/kds_tes.php/.m3u8?id=mbc",
+    "featured": false,
+    "description": "Televisión de Corea del Sur"
   }
 ]
