@@ -175,7 +175,7 @@ const streamUrl = getPlayableStreamUrl(originalStreamUrl);
         setIsLoading(false);
 
         if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
-          setError(getStreamErrorMessage(streamUrl));
+          setError(getStreamErrorMessage(originalStreamUrl));
         } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
           setError("Formato de video no compatible con este navegador.");
         } else {
@@ -202,7 +202,7 @@ const streamUrl = getPlayableStreamUrl(originalStreamUrl);
         "error",
         () => {
           setIsLoading(false);
-          setError(getStreamErrorMessage(streamUrl));
+          setError(getStreamErrorMessage(originalStreamUrl));
         },
         { once: true }
       );
@@ -222,7 +222,7 @@ const streamUrl = getPlayableStreamUrl(originalStreamUrl);
       "error",
       () => {
         setIsLoading(false);
-        setError(getStreamErrorMessage(streamUrl));
+        setError(getStreamErrorMessage(originalStreamUrl));
       },
       { once: true }
     );
