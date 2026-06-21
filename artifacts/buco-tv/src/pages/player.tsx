@@ -15,6 +15,18 @@ type Channel = {
 
 const CHANNELS_JSON_URL =
   "https://raw.githubusercontent.com/ismmaph-rgb/Buco-Tv/main/artifacts/api-server/data/channels.json";
+const HTTP_PROXY_URL =
+  "https://late-sea-2cdb.ismmaproducciones.workers.dev";
+
+function getPlayableStreamUrl(streamUrl: string): string {
+  const cleanUrl = streamUrl.trim();
+
+  if (cleanUrl.startsWith("http://")) {
+    return `${HTTP_PROXY_URL}/?url=${encodeURIComponent(cleanUrl)}`;
+  }
+
+  return cleanUrl;
+}
 
 function getDirectStreamUrl(channel?: Channel | null): string {
   return channel?.stream?.trim() ?? "";
