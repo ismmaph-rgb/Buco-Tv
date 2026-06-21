@@ -123,7 +123,10 @@ const streamUrl = getPlayableStreamUrl(originalStreamUrl);
     video.removeAttribute("src");
     video.load();
 
-    console.log("Playing channel", channel?.id, channel?.name, streamUrl);
+    console.log("Playing channel", channel?.id, channel?.name, {
+  originalStreamUrl,
+  streamUrl,
+});
 
     if (!streamUrl) {
       setIsLoading(false);
