@@ -110,7 +110,8 @@ export function Player() {
 
   const loadCurrentStream = useCallback(() => {
     const video = videoRef.current;
-    const streamUrl = getDirectStreamUrl(channel);
+    const originalStreamUrl = getDirectStreamUrl(channel);
+const streamUrl = getPlayableStreamUrl(originalStreamUrl);
 
     destroyHls();
     setError(null);
